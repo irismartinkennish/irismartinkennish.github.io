@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Demo / Retro Nominator</title>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <meta content="utf-8" http-equiv="encoding" />
+  </head>
+  <body>
+    <header>
+      <h1>Demo / Retro Nominator</h1>
+    </header>
+    <main>
+      <div>
+        <p>
+          Input the names of the people you wish to choose a nomination from:
+        </p>
+        <div>
+          <label for="name-input">Add a name:</label>
+          <input type="text" id="name-input" />
+          <button type="button" id="add-name">Add</button>
+        </div>
+        <div id="names">
+          <ul id="name-list"></ul>
+        </div>
+      </div>
+    </main>
+    <script type="text/javascript">
+      document.getElementById("add-name").addEventListener("click", () => {
+        const nameInput = document.getElementById("name-input");
+        const name = nameInput.value;
+
+        // Append name to list
+        const nameListElement = document.getElementById("name-list");
+        let nameListItem = document.createElement("li");
+        nameListItem.innerText = name;
+        nameListElement.appendChild(nameListItem);
+
+        // clear the input
+        nameInput.value = "";
+      });
+    </script>
+  </body>
+</html>
