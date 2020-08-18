@@ -22,6 +22,12 @@
         <div id="names">
           <ul id="name-list"></ul>
         </div>
+        <div></div>
+        <div>
+            <button type="button" id="choose-nomination" disabled="disabled">Choose nomination</button>
+        </div>
+        <div id="nominated"></div>
+        </div>
       </div>
     </main>
     <script type="text/javascript">
@@ -37,6 +43,18 @@
 
         // clear the input
         nameInput.value = "";
+
+        // Enable choosing nominations
+        if (nameListElement.childElementCount >= 2) {
+            const chooseNominationButton = document.getElementById('choose-nomination')
+            if (chooseNominationButton.hasAttribute('disabled')){
+                chooseNominationButton.removeAttribute('disabled')
+            }
+        }
+      });
+      
+      document.getElementById('choose-nomination').addEventListener('click', () => {
+        console.log('Choosing nomination')
       });
     </script>
   </body>
