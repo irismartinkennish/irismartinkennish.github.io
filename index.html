@@ -53,8 +53,27 @@
         }
       });
       
+      function getRandomInt(max) {
+        return Math.floor(Math.random() * Math.floor(max));
+      }
+
       document.getElementById('choose-nomination').addEventListener('click', () => {
-        console.log('Choosing nomination')
+        const names = Array.from(document.querySelectorAll('#name-list>li')).map(x => x.textContent);
+
+        const choosenIndex = getRandomInt(names.length);
+        const choosenName = names[choosenIndex];
+        console.log('Choosen nominee: ' + choosenName);
+
+        const standardTextElement = document.createElement('p');
+        standardTextElement.innerText = "The choosen nominee is:"
+
+        const choosenNameElement = document.createElement('h2');
+        choosenNameElement.innerText = choosenName;
+
+        const nominationElement = document.getElementById('nominated');
+        nominationElement.innerHTML = '';
+        nominationElement.appendChild(standardTextElement);
+        nominationElement.appendChild(choosenNameElement);
       });
     </script>
   </body>
